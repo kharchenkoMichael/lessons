@@ -1,22 +1,29 @@
-﻿Console.WriteLine("write first operand");
-var input = Console.ReadLine();
-int operand1 = int.Parse(input);
-Console.WriteLine("write second operand");
-input = Console.ReadLine();
-int operand2 = int.Parse(input);
-Console.WriteLine("write operation");
-input = Console.ReadLine();
-switch (input)
-{
-    case "+":
-        Console.WriteLine($"operand1+operand2={operand1 + operand2}");
-        break;
-    case "-":
-        Console.WriteLine($"operand1-operand2={operand1 - operand2}");
-        break;
-    case "*":
-        Console.WriteLine($"operand1*operand2={operand1 * operand2}");
-        break;
-    case "/":
-        Console.WriteLine($"operand1/operand2={operand1 / operand2}");
-        break;
+﻿int a = 5;
+int b = 8;
+int c = 7;
+Console.WriteLine ($"a+b={a+b}");
+Console.WriteLine($"a-b={a - b}");
+Console.WriteLine($"a*b={a * b}");
+Console.WriteLine($"a/b={a / b}");
+Console.WriteLine($"a%b={a % b}");
+
+Console.WriteLine($"(a+b+c) / 3={(a + b + c) / 3.0}");
+
+
+double pi = 3.14;
+Console.WriteLine("input r");
+int r = int.Parse(Console.ReadLine());
+Console.WriteLine($"S={pi*r*r}") ;
+
+
+
+
+
+
+
+
+
+
+
+
+
