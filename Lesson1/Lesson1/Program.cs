@@ -1,25 +1,46 @@
-﻿bool result = true;
-int value = 0;
+﻿
 
-do
+
+using System.Runtime.InteropServices;
+
+int a = 20;
+int b = 30;
+int c = 40;
+int d = 100;
+while (true)
 {
-    Console.WriteLine("write number");
-    string inputString = Console.ReadLine();
-    result = int.TryParse(inputString, out int intValue);
-    value = intValue;
-} while (!result);
-int i = 0;
-for (i = 0; i <= 0; i++);
+    string input = Console.ReadLine();
+    switch (input)
+    {
+        case "coffee":
+            a++;
+            break;
+        case "cheesecake":
+            b--;
+            break;
+        case "macrones":
+            c--;
+            break;
+        case "hookah":
+            d--;
+            break;
+        default:
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+            Console.WriteLine(c);
+            Console.WriteLine(d);
+            Console.WriteLine(a + b + c + d);
+            break;
 
-
-{
-    if (i % 3 == 0) ;
-    Console.WriteLine(i);
+    }
 }
 
 
 
-   
+
+
+
+
 
 
 
