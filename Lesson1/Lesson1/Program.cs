@@ -1,59 +1,30 @@
-﻿//double pi = 3.14;
-//Console.WriteLine("input r");
-//Console.WriteLine("input h");
-//int r = int.Parse(Console.ReadLine());
-//int h = int.Parse(Console.ReadLine());
-//Console.WriteLine($"V={pi * r * r * h}");
-//Console.WriteLine($"S={2 * pi * r*(r + h)}");
+﻿
 
-
-
-bool isChating = true;
-while (isChating)
+int Add(int a,int b)
 {
-    string input = (Console.ReadLine());
-    switch (input)
-    {
-        case "дождь":
-            Console.WriteLine("Rain");
-            break;
-        case "солнце":
-            Console.WriteLine("Sun");
-            break;
-        case "снег":
-            Console.WriteLine("Snow");
-            break;
-        case "ураган":
-            Console.WriteLine("Hurricane");
-            break;
-        case "наводнение":
-            Console.WriteLine("Flood");
-            break;
-        case "ветер":
-            Console.WriteLine("Wind");
-            break;
-        case "холодно":
-            Console.WriteLine("Cold");
-            break;
-        case "тепло":
-            Console.WriteLine("Warm");
-            break;
-        case "тучи":
-            Console.WriteLine("cloud");
-            break;
-        case "землетрясение":
-            Console.WriteLine("earthquake");
-            break;
-        default:
-            Console.WriteLine("i'm not understand you");
-            break;
-    }
+    return a + b;
 }
+ int Sub(int a,int b)
+{
+    return a - b;
+}
+int Mult(int a,int b)
+{
+    return a * b;
+}
+int Div(int a, int b)
+{
+    return a / b;
+}
+string input = Console.ReadLine();
+string input1 = Console.ReadLine();
+int.TryParse(input,out int a);
+int.TryParse(input1, out int b);
 
-
-
-
-
+Console.WriteLine(Add(a,b));
+Console.WriteLine(Sub(a,b));
+Console.WriteLine(Mult(a,b));
+Console.WriteLine(Div(a,b));
 
 
 
