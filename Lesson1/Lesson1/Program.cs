@@ -1,46 +1,10 @@
-﻿
-
-
-using System.Runtime.InteropServices;
-
-int a = 20;
-int b = 30;
-int c = 40;
-int d = 100;
-while (true)
-{
-    string input = Console.ReadLine();
-    switch (input)
-    {
-        case "coffee":
-            a++;
-            break;
-        case "cheesecake":
-            b--;
-            break;
-        case "macrones":
-            c--;
-            break;
-        case "hookah":
-            d--;
-            break;
-        default:
-            Console.WriteLine(a);
-            Console.WriteLine(b);
-            Console.WriteLine(c);
-            Console.WriteLine(d);
-            Console.WriteLine(a + b + c + d);
-            break;
-
-    }
-}
-
-
-
-
-
-
-
+﻿double pi = 3.14;
+Console.WriteLine("input r");
+Console.WriteLine("input h");
+int r = int.Parse(Console.ReadLine());
+int h = int.Parse(Console.ReadLine());
+Console.WriteLine($"V={pi * r * r * h}");
+Console.WriteLine($"S={2 * pi * r*(r + h)}");
 
 
 
