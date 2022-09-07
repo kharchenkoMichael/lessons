@@ -1,22 +1,14 @@
 ﻿
-//double ChangeUaInDollar(double ua)
+//int Sum(int a)
 //{
-//    return ua / 41;
+//    if (a == 0)
+//    {
+//        return 0;
+//    }
+//    return Sum(a - 1) + a;
 //}
-//double.TryParse(Console.ReadLine(), out double ua);
-//Console.WriteLine(ChangeUaInDollar(ua));
 
-
-//void Method(int a = 5, string b = "hello")
-//{
-//    Console.WriteLine(a + b);
-//}
-//Method(10, "bye");
-//Method(20);
-//Method(b: "bye");
-//Method();
-
-
+//Console.WriteLine(Sum(10));
 
 
 
