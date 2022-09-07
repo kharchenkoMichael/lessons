@@ -1,26 +1,13 @@
 ﻿
-//int Sum(int a)
-//{
-//    if (a == 0)
-//    {
-//        return 0;
-//    }
-//    return Sum(a - 1) + a;
-//}
-
-//Console.WriteLine(Sum(10));
-
-
-//int Factorial(int a)
-//{
-//    if (a==0)
-//    {
-//        return 1;
-//    }
-//    return Factorial(a - 1) * a;
-//}
-//Console.WriteLine(Factorial(5));
-
+bool IsSimple(int a)
+{
+    for(int i = 2; i < a; i++)
+    {
+        if (a % i == 0) { return false; }
+    }
+    return true;
+}
+Console.WriteLine(IsSimple(23));
 
 
 
