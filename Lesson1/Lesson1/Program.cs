@@ -1,30 +1,38 @@
 ﻿
 
-int Add(int a,int b)
+void Add(int a,int b)
 {
-    return a + b;
+    Console.WriteLine(a+b);
 }
- int Sub(int a,int b)
+void Sub(int a,int b)
 {
-    return a - b;
+    Console.WriteLine(a-b);
 }
-int Mult(int a,int b)
+void Mult(int a,int b)
 {
-    return a * b;
+    Console.WriteLine(a*b);
 }
-int Div(int a, int b)
+void Div(int a, int b)
 {
-    return a / b;
+    
+    if (b == 0)
+    {
+        Console.WriteLine("на нуль дилыты не можна");
+        return;
+    }
+    Console.WriteLine(a / b);
 }
 string input = Console.ReadLine();
 string input1 = Console.ReadLine();
 int.TryParse(input,out int a);
 int.TryParse(input1, out int b);
+Add(a, b);
+Sub(a, b);
+Mult(a, b);
+Div(a, b);
 
-Console.WriteLine(Add(a,b));
-Console.WriteLine(Sub(a,b));
-Console.WriteLine(Mult(a,b));
-Console.WriteLine(Div(a,b));
+
+
 
 
 
