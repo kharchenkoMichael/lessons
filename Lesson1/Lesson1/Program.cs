@@ -1,13 +1,9 @@
 ﻿
-bool IsSimple(int a)
-{
-    for(int i = 2; i < a; i++)
-    {
-        if (a % i == 0) { return false; }
-    }
-    return true;
-}
-Console.WriteLine(IsSimple(23));
+//bool TrueFalse(int a,int b)
+//{
+//    return a % b == 0;     
+//}
+//Console.WriteLine(TrueFalse(9,2));
 
 
 
