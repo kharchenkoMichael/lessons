@@ -1,70 +1,15 @@
-﻿int[,] map = new int[3, 3];//0 - пуста клітка; 1 - хрестик; 2 - нулик;
-
-bool firstPlayer = true; // другий гравець - false
-int row = 0, column = 0;
-
-while (true)
+﻿int.TryParse(Console.ReadLine(),out int count);
+int[] ints = new int[count];
+for(int i = 0; i < ints.Length; i++)
 {
-    DrawMap(map);
-    if (firstPlayer)
-    {
-        Console.WriteLine("First Player turn (X)");
-    }
-    else
-    {
-        Console.WriteLine("Second Player turn (0)");
-    }
-
-    Console.WriteLine("Enter row:");
-    row = int.Parse(Console.ReadLine());
-    Console.WriteLine("Enter column:");
-    column = int.Parse(Console.ReadLine());
-
-    map[row, column] = firstPlayer ? 1 : 2;
-
-    if (CheckMapState(map))
-    {
-        break;
-    }
-
-    firstPlayer = !firstPlayer;
+    ints[i] = int.Parse(Console.ReadLine());
 }
-
-void DrawMap(int[,] map)
+int max = int.MinValue;
+for (int i = 0; i < ints.Length; i++) 
 {
-    for (int i = 0; i < map.GetUpperBound(0) + 1; i++)
+    if (ints[i] > max)
     {
-        for (int j = 0; j < map.GetUpperBound(1) + 1; j++)
-        {
-            switch (map[i, j])
-            {
-                case 0:
-                    Console.Write(' ');
-                    break;
-                case 1:
-                    Console.Write('X');
-                    break;
-                case 2:
-                    Console.Write('O');
-                    break;
-            }
-            if (j != map.GetUpperBound(1))
-            {
-                Console.Write('|');
-            }
-        }
-
-        Console.WriteLine();
-        if (i != map.GetUpperBound(0))
-        {
-            Console.Write("-----");
-        }
-        Console.WriteLine();
+        max = ints[i];
     }
 }
-
-bool CheckMapState(int[,] map)
-{
-    //TODO: Implent method
-    return false;
-}
+Console.WriteLine(max);
