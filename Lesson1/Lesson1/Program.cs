@@ -1,23 +1,11 @@
-﻿
-bool b = int.TryParse(Console.ReadLine(),out int a);
-
-if (a < 15)
+﻿int lenght = 10, width = 5;
+for (int j = 0; j < width; j++)
 {
-    Console.WriteLine("[0-14]");
-}
-else if (a < 36)
-{
-    Console.WriteLine("[15-35]");
-}
-else if (a < 51)
-{
-    Console.WriteLine("[36-50]");
-}
-else if (a < 101)
-{
-    Console.WriteLine("[50-100]");
-}
-else if (a > 100)
-{
-    Console.WriteLine("i'm not understand");
+    for (int i = 0; i < lenght; i++)
+    {
+        if (j == 0 || j == width - 1) Console.Write("*");
+        else if (i == 0 || i == lenght - 1) Console.Write("*");
+        else Console.Write(" ");
+    }
+    Console.WriteLine();
 }
