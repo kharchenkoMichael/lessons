@@ -1,15 +1,21 @@
-﻿int.TryParse(Console.ReadLine(),out int count);
-int[] ints = new int[count];
-for(int i = 0; i < ints.Length; i++)
+﻿int[] arrays = { 1, 2, 3, 2, 3 };
+int ellement = 5;
+
+int[] result = new int[arrays.Length + 1];
+for (int i =0; i < arrays.Length; i++)
 {
-    ints[i] = int.Parse(Console.ReadLine());
+    result[i] = arrays[i];
 }
-int max = int.MinValue;
-for (int i = 0; i < ints.Length; i++) 
+
+
+
+result[result.Length - 1] = ellement;
+
+
+
+
+
+for (int i = 0; i < result.Length; i++)
 {
-    if (ints[i] > max)
-    {
-        max = ints[i];
-    }
+    Console.WriteLine(result[i]);
 }
-Console.WriteLine(max);
