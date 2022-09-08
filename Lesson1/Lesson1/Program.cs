@@ -1,11 +1,12 @@
-﻿int lenght = 10, width = 5;
-for (int j = 0; j < width; j++)
+﻿int.TryParse(Console.ReadLine(), out int count);
+int[] rates = new int[count];
+for (int i = 0; i < rates.Length; i++)
 {
-    for (int i = 0; i < lenght; i++)
-    {
-        if (j == 0 || j == width - 1) Console.Write("*");
-        else if (i == 0 || i == lenght - 1) Console.Write("*");
-        else Console.Write(" ");
-    }
-    Console.WriteLine();
+    rates[i] = int.Parse(Console.ReadLine());
 }
+int sum = 0;
+for (int i = 0; i < rates.Length; i++)
+{
+  sum = sum + rates[i];
+}
+Console.WriteLine((double) sum / rates.Length);
