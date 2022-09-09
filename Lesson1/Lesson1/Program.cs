@@ -9,18 +9,18 @@
 
 
 int[] array = { 1, 2, 3, 4, 5 };
-Reverse(array);
-for (int i = 0; i < array.Length; i++)
+int[] result = Reverse(array);
+for (int i = 0; i < result.Length; i++)
 {
-    Console.WriteLine(array[i]);
+    Console.WriteLine(result[i]);
 }
 
-void Reverse(int[] array)
+int[] Reverse(int[] array)
 {
-    for (int i = 0; i < array.Length / 2; i++)
+    int[] result = new int[array.Length];
+    for (int i = 0; i < array.Length; i++)
     {
-        int temp = array[i];
-        array[i] = array[array.Length - 1 - i];
-        array[array.Length - 1 - i] = temp;
+        result[i] = array[array.Length - 1 - i];
     }
+    return result;
 }
