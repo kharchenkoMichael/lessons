@@ -1,18 +1,7 @@
-﻿int[] arrays = { 1, 2, 3, 2, 3 };
-int ellement = 5;
-int [] Method(int[] arrays, int ellement)
-{
-    int[] result = new int[arrays.Length + 1];
-    for (int i = 0; i < arrays.Length; i++)
+﻿    int[] array = { 1, 2, 3, 4, 5 };
+    Array.Reverse(array);
+    for (int i = 0; i < array.Length; i++)
     {
-        result[i + 1] = arrays[i];
+        Console.WriteLine(array[i]);
     }
-    result[0] = ellement;
-    return result;
-}
-int[] result = Method(arrays, ellement);
-
-for (int i = 0; i < result.Length; i++)
-{
-    Console.WriteLine(result[i]);
-}
+    
