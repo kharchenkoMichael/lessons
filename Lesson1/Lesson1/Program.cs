@@ -1,26 +1,25 @@
-﻿//int[] array = { 2, 5, 8, 10, 15,20,25 };
-//int index = 2;
-//int count = 3;
-//int[] SubArray(int[] array, int index, int count);
-//for (int i = 0; i > array.Length; i++)
-//{
-
-//}
-
-
-int[] array = { 1, 2, 3, 4, 5 };
-int[] result = Reverse(array);
-for (int i = 0; i < result.Length; i++)
+﻿int[] array = { 2, 5, 8, 10, 15,20,25 };
+int index = 1;
+int count = 5;
+int[] SubArray(int[] array, int index, int count)
 {
-    Console.WriteLine(result[i]);
-}
-
-int[] Reverse(int[] array)
-{
-    int[] result = new int[array.Length];
-    for (int i = 0; i < array.Length; i++)
+    int[] result = new int[count];
+    for (int i=0; i< count; i++)
     {
-        result[i] = array[array.Length - 1 - i];
+        result[i] = array[index+i];
     }
     return result;
 }
+int[] result = SubArray(array, index, count);
+for(int i = 0;i < result.Length; i++)
+{
+    Console.WriteLine(result[i]);
+}
+   
+
+
+
+
+
+
+
