@@ -1,27 +1,34 @@
-﻿int[] array = { 1, 2, 3, 1,5,4,3};
-int value = 9;
+﻿int[] array = { 1, 1, 2, 3, 6, 7, 9, 12, 13, 16, 23 };
+int value = 35;
 
 
-int[] Getsum(int[] array, int value)
+int[] GetSum(int[] array, int value)
 {
     int[] result = new int[2];
-    for (int i = 0; i < array.Length; i++)
+    int first = 0;
+    int last = array.Length - 1;
+    while (array[first] + array[last] != value && first != last)
     {
-        for(int j = i+1;j < array.Length;j++ )
+        if (array[first] + array[last] < value)
         {
-            if (array[i] + array[j] == value)
-            {
-              return new int[] {array[i], array[j]};
-            }
+            first++;
         }
+        else
+        {
+            last--;
+        }
+    }
+    if (first != last)
+    {
+        result[0] = array[first];
+        result[1] = array[last];
     }
     return result;
 }
-int[] result = Getsum(array, value);
+
+int[] result = GetSum(array, value);
 Console.WriteLine(result[0]);
 Console.WriteLine(result[1]);
-
-
 
 
 
