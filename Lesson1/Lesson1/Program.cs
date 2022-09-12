@@ -18,37 +18,22 @@
 
 
 
-int wholecredit = 700;
-int minpayment = 100;
-bool payment = int.TryParse(Console.ReadLine(), out int a);
-void Credit(int a)
+int Fibonachi(int n)
 {
-    if (a == minpayment)
-    {
-        int result = wholecredit - a;         
-        Console.WriteLine("Ваш долг");
-        Console.WriteLine(result);
-    }
-    else if(a > minpayment)
-    {
-        int overpayment = a - minpayment;
-        int result = wholecredit - a;
-        Console.WriteLine("Ваш долг");
-        Console.WriteLine(result);
-        Console.WriteLine("Ваша переплата");
-        Console.WriteLine(overpayment);
+    if (n == 0 || n == 1) return n;
 
-    }
-    else
-    {
-        Console.WriteLine("minimal payment 100 ua");
-    }
-    return;
+    return Fibonachi(n - 1) + Fibonachi(n - 2);
 }
-Credit(a);
+
+int fib4 = Fibonachi(4);
+int fib5 = Fibonachi(5);
+int fib6 = Fibonachi(6);
+
+Console.WriteLine($"4 число Фибоначчи = {fib4}");
+Console.WriteLine($"5 число Фибоначчи = {fib5}");
+Console.WriteLine($"6 число Фибоначчи = {fib6}");
 
 
-   
 
 
 
