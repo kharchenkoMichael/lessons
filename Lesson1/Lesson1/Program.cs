@@ -1,35 +1,25 @@
-﻿//int[] array = { 1, 2, 3, 1 };
-//int value = 4;
+﻿int[] array = { 1, 2, 3, 1,5,4,3};
+int value = 9;
 
 
-//int[] GetSum(int[] array, int value)
-//{
-//    int[] result = new int[2];
-//    for(int i = 0; i < array.Length; i++)   
-//    {
-//     int temp = 
-//    }
-//    return result;
-//}
-
-int FibonachiLoop(int n)
+int[] Getsum(int[] array, int value)
 {
-    if (n == 0 || n == 1)
+    int[] result = new int[2];
+    for (int i = 0; i < array.Length; i++)
     {
-        return n;
+        for(int j = i+1;j < array.Length;j++ )
+        {
+            if (array[i] + array[j] == value)
+            {
+              return new int[] {array[i], array[j]};
+            }
+        }
     }
-
-    int result = 0;
-    int prev1 = 1, prev2 = 0;
-    for (int i = 2; i < n; i++)
-    {
-        result = prev2 + prev1;
-        prev2 = prev1;
-        prev1 = result;
-    }
-
     return result;
 }
+int[] result = Getsum(array, value);
+Console.WriteLine(result[0]);
+Console.WriteLine(result[1]);
 
 
 
