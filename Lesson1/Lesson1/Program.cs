@@ -1,34 +1,59 @@
-﻿int[] array = { 1, 1, 2, 3, 6, 7, 9, 12, 13, 16, 23 };
-int value = 35;
-
-
-int[] GetSum(int[] array, int value)
+﻿
+int Calculation(string str)
 {
-    int[] result = new int[2];
-    int first = 0;
-    int last = array.Length - 1;
-    while (array[first] + array[last] != value && first != last)
+    int result = 0;
+    string op1 = "";
+    string op2 = "";
+    bool isOp1 = true;
+    char operation = ' ';
+    for (int i = 0; i < str.Length; i++)
     {
-        if (array[first] + array[last] < value)
+        if (str[i]== '+' || str[i]== '-' || str[i]== '*' || str[i] == '/')
         {
-            first++;
+            isOp1 = false;
+            operation = str[i];
         }
-        else
+        else 
         {
-            last--;
+            if (isOp1)
+            {
+                op1 += str[i];
+            }
+            else
+            {
+                op2 += str[i];
+            }
         }
     }
-    if (first != last)
+    int value1 = int.Parse(op1);
+    int value2 = int.Parse(op2);
+   switch (operation)
     {
-        result[0] = array[first];
-        result[1] = array[last];
+        case '+':
+            result = value1 + value2;
+            break;
+        case '-':
+            result = value1 - value2;
+            break;
+        case '*':
+            result = value1 * value2;
+            break;
+        case '/':
+            result = value1 / value2;
+            break;
     }
     return result;
 }
+while (true)
+{
+    int result = Calculation(Console.ReadLine());
+    Console.WriteLine(result);
+}
 
-int[] result = GetSum(array, value);
-Console.WriteLine(result[0]);
-Console.WriteLine(result[1]);
+
+
+
+
 
 
 
