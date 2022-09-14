@@ -1,34 +1,17 @@
-﻿
-
-string login = "zamler";
-string password = "12345";
-Console.WriteLine("Введите свой логин");
-string newLogin = Console.ReadLine();
-if (newLogin == login)
+﻿string Str(string[] str)
 {
-    Console.WriteLine("Введите пароль");
-    string newPassword = Console.ReadLine();
-    if(newPassword == password)
+    string result = "";
+    for (int i = 0; i< str.Length; i++)
     {
-        Console.WriteLine("Welcome");
+        if (str[i].Length > result.Length)
+        {
+            result = str[i];
+        }
     }
-    else
-    {
-        Console.WriteLine("Не правильный пароль");
-    }
-    
+    return result;
 }
-else
-{
-    Console.WriteLine("Не верный логин");
-}
-
-
-
-
-
-
-
+string result = Str(new string[] { "abc", "sdasd", "csdsdd" });
+Console.WriteLine(result);
 
 
 
