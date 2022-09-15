@@ -1,40 +1,33 @@
-﻿Console.WriteLine("размеры стаканчиков кофе: 1 = маленький, 2 = средний, 3 = большой");
-int small = 25;
-int medium = 50;
-int large = 100;
-int result = 0;
-bool exit = false;
-while (!exit)
+﻿int state = 0; // 0010 0000
+
+int TurnOn(int state, int value)
 {
-    Console.Write("пожалуйста, сделайте свой выбор: ");
-    string coffeesize = Console.ReadLine();
-    switch (coffeesize)
-    {
-        case "1":
-            result += small;
-            break;
-        case "2":
-            result += medium;
-            break;
-        case "3":
-            result += large;
-            break;
-        case "exit":
-            exit = true;
-            break;
-        default:
-            Console.WriteLine("Такого в меню нету");
-            break;
-    }
+    int mask = (int)Math.Pow(2, value - 1);
+    return state | mask;
 }
-Console.WriteLine(result);
 
+int TurnOff(int state, int value)
+{
+    int mask = ~(int)Math.Pow(2, value - 1);//0000 0001 -> 1111 1110
+    return state & mask;
+}
 
-
-
-
-
-
-
+while (true)
+{
+    string value = Console.ReadLine();
+    if (value[0] == '+')
+    {
+        state = TurnOn(state, int.Parse(value.Substring(1).ToString()));
+    }
+    else if (value[0] == '-')
+    {
+        state = TurnOff(state, int.Parse(value.Substring(1).ToString()));
+    }
+    else
+    {
+        Console.WriteLine("I don't understand");
+    }
+    Console.WriteLine($"{Convert.ToString(state, 2)}");
+}
 
 
