@@ -1,16 +1,24 @@
-﻿int[] array = new int[] { 12, 24, 31, 42, 57, 66, 77, 81 };
-int Method(int[] array)
+﻿string color = "red";
+Console.WriteLine("Угадай цвет");
+bool trueColor = false;
+for (int i = 0; i < 5; i++)
 {
-    for(int i = 0; i < array.Length; i++)
+    string tryColor = Console.ReadLine();
+    if(color == tryColor)
     {
-        if (array[i] > 0 && array[i] < 10)
-        {
-            return array[i];
-        }
+        Console.WriteLine("Угадал");
+        trueColor = true;
+        break;
     }
-    return 0;
+    else
+    {
+        Console.WriteLine("Не угадал");
+    }
 }
-Console.WriteLine(Method(array));
+if (!trueColor)
+{
+    Console.WriteLine("Не угадал,закончились жизни");
+}
 
 
 
