@@ -1,25 +1,17 @@
-﻿using System.Data;
-
-Random random = new Random();
-int value = random.Next(100);
-Console.WriteLine("Угадай число от 0-100");
-while (true)
+﻿int[] array = new int[] { 12, 24, 31, 42, 57, 66, 77, 81 };
+int Method(int[] array)
 {
-    int a = int.Parse(Console.ReadLine());
-    if(a < value)
+    for(int i = 0; i < array.Length; i++)
     {
-        Console.WriteLine($"Загаданное число больше {a}");
+        if (array[i] > 0 && array[i] < 10)
+        {
+            return array[i];
+        }
     }
-    else if (a > value)
-    {
-        Console.WriteLine($"Загадонное чило меньше {a}");
-    }
-    else
-    {
-        break;
-    }
+    return 0;
 }
-Console.WriteLine("Ты угадал");
+Console.WriteLine(Method(array));
+
 
 
 
