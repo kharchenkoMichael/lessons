@@ -3,25 +3,25 @@ string day = Console.ReadLine();
 switch (day)
 {
     case "1":
-        Console.WriteLine("понедельник");
+        Console.WriteLine("рабочий день");
         break;
     case "2":
-        Console.WriteLine("вторник");
+        Console.WriteLine("рабочий день");
         break;
     case "3":
-        Console.WriteLine("среда");
+        Console.WriteLine("рабочий день");
         break;
     case "4":
-        Console.WriteLine("четверг");
+        Console.WriteLine("рабочий день");
         break;
     case "5":
-        Console.WriteLine("пятница");
+        Console.WriteLine("рабочий день");
         break;
     case "6":
-        Console.WriteLine("суббота");
+        Console.WriteLine("выходной");
         break;
     case "7":
-        Console.WriteLine("воскресенье");
+        Console.WriteLine("выходной");
         break;
     default:
         Console.WriteLine("bye");
