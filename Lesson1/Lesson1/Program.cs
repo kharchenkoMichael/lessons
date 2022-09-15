@@ -1,17 +1,38 @@
-﻿string Str(string[] str)
+﻿Console.WriteLine("Введите номер дня недели: 1-2-3-4-5-6-7: ");
+string day = Console.ReadLine();
+switch (day)
 {
-    string result = "";
-    for (int i = 0; i< str.Length; i++)
-    {
-        if (str[i].Length > result.Length)
-        {
-            result = str[i];
-        }
-    }
-    return result;
+    case "1":
+        Console.WriteLine("понедельник");
+        break;
+    case "2":
+        Console.WriteLine("вторник");
+        break;
+    case "3":
+        Console.WriteLine("среда");
+        break;
+    case "4":
+        Console.WriteLine("четверг");
+        break;
+    case "5":
+        Console.WriteLine("пятница");
+        break;
+    case "6":
+        Console.WriteLine("суббота");
+        break;
+    case "7":
+        Console.WriteLine("воскресенье");
+        break;
+    default:
+        Console.WriteLine("bye");
+        break;
+        
+
 }
-string result = Str(new string[] { "abc", "sdasd", "csdsdd" });
-Console.WriteLine(result);
+
+
+
+
 
 
 
