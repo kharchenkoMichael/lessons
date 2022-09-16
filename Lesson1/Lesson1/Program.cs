@@ -1,14 +1,20 @@
-﻿Console.WriteLine("Введите высоту триугольника");
-int height = int.Parse(Console.ReadLine());
-for (int i = 0; i < height; i++)
+﻿
+
+bool input = int.TryParse(Console.ReadLine(), out int a);
+bool input2 = int.TryParse(Console.ReadLine(), out int b);
+void Method(int a,int b)
 {
-    Console.WriteLine();
-    for (int j = 0;j <= i; j++)
+    if (a > b)
     {
-        Console.Write("*");
-    }   
+        Console.WriteLine("a > b");
+    }
+    else if (a < b)
+    {
+        Console.WriteLine("a < b");
+    }
+    else if (a == b)
+    {
+        Console.WriteLine("a == b");
+    }
 }
-
-
-
-
+Method(a, b);
