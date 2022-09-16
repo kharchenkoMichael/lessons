@@ -1,23 +1,12 @@
-﻿string color = "red";
-Console.WriteLine("Угадай цвет");
-bool trueColor = false;
-for (int i = 0; i < 5; i++)
+﻿Console.WriteLine("Введите высоту триугольника");
+int height = int.Parse(Console.ReadLine());
+for (int i = 0; i < height; i++)
 {
-    string tryColor = Console.ReadLine();
-    if(color == tryColor)
+    Console.WriteLine();
+    for (int j = 0;j <= i; j++)
     {
-        Console.WriteLine("Угадал");
-        trueColor = true;
-        break;
-    }
-    else
-    {
-        Console.WriteLine("Не угадал");
-    }
-}
-if (!trueColor)
-{
-    Console.WriteLine("Не угадал,закончились жизни");
+        Console.Write("*");
+    }   
 }
 
 
