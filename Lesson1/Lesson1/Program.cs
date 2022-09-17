@@ -1,9 +1,6 @@
 ﻿using Lesson1;
-Adress adress = new Adress();
-adress.Index = 20;
-adress.Country = "Ukraine";
-adress.City = "Kremenchug";
-adress.Street = "Soborna";
-adress.House = 15;
-adress.Apartment = 50;
-Console.WriteLine($"индекс {adress.Index}, страна {adress.Country}, город {adress.City}, улица {adress.Street}, дом {adress.House}, квартира {adress.Apartment}");
+double side1 = double.Parse(Console.ReadLine());
+double side2 = double.Parse(Console.ReadLine());
+Rectangle rectangle = new Rectangle(side1, side2);
+Console.WriteLine(rectangle.AreaCalculator());
+Console.WriteLine(rectangle.PerimetrCalculator());
