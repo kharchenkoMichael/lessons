@@ -1,7 +1,4 @@
 ﻿
-
-using System.Security.Cryptography.X509Certificates;
-
 namespace Lesson1
 {
     public class Rectangle
