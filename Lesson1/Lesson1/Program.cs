@@ -1,9 +1,11 @@
-﻿using Lesson1;
-User user = new User();
-user.Login = "jakson";
-user.Name = "Jeka";
-user.surname = "Murashov";
-user.Age = 27;
-user.Date = DateTime.Now;
-Console.WriteLine($" логин - {user.Login}, имя - {user.name}, фамилия - {user.surname}, возвраст - {user.age},дата - {user.Date}");
+﻿using System;
 
+
+using Lesson1;
+
+var convertor = new Converter(42.30, 41.35);
+
+Console.WriteLine($"100$ = {convertor.GetHrnFromUsd(100)}hrn");
+Console.WriteLine($"1000hrn = {convertor.GetUsdFromHrn(1000)}$");
+Console.WriteLine($"100eur = {convertor.GetHrnFromEur(100)}hrn");
+Console.WriteLine($"1000hrn = {convertor.GetEurFromHrn(1000)}eur");
