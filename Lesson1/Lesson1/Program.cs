@@ -1,11 +1,18 @@
-﻿using System;
+﻿using Lesson1;
+using System;
 
+var apple = new Apple();
+var banana = new Banana();
 
-using Lesson1;
+apple.Eat();
+banana.Eat();
 
-var convertor = new Converter(42.30, 41.35);
+Console.WriteLine("3 days after");
 
-Console.WriteLine($"100$ = {convertor.GetHrnFromUsd(100)}hrn");
-Console.WriteLine($"1000hrn = {convertor.GetUsdFromHrn(1000)}$");
-Console.WriteLine($"100eur = {convertor.GetHrnFromEur(100)}hrn");
-Console.WriteLine($"1000hrn = {convertor.GetEurFromHrn(1000)}eur");
+apple.Spoil();
+banana.Spoil();
+
+apple.Eat();
+banana.Eat();
+
+var appleSpoiled = new Apple(true);
