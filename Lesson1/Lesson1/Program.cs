@@ -1,10 +1,4 @@
 ﻿using Lesson1;
-var myclass = new MyClass();
-myclass.Fieald = "goodbye";
-Console.WriteLine(myclass.Fieald);
-myclass.Fieald = null;
-Console.WriteLine(myclass.Fieald);
-myclass.Fieald = "hello world";
-Console.WriteLine(myclass.Fieald);
-myclass.Fieald = "HAPPY NEW YEAR";
-Console.WriteLine(myclass.Fieald);
+var classroom = new ClassRoom(new ExcelentPupil(),new GoodPupil(),new BadPupil(), new ExcelentPupil(), new GoodPupil());
+classroom.ShowInfo();
+
