@@ -1,18 +1,16 @@
 ﻿using Lesson1;
-string str = Console.ReadLine();
-DocumentWorker worker;
-switch (str)
+
+Printer printer;
+switch (Console.ReadLine())
 {
-    case "pro":
-        worker = new ProDocumentWorker();
+    case "yellow":
+        printer = new YellowPrinter();
         break;
-    case "exp":
-        worker = new ExpertDocumentWorker();
-        break ;
+    case "green":
+        printer = new GreenPrinter();
+        break;
     default:
-        worker = new DocumentWorker();
+        printer = new Printer();
         break;
 }
-worker.OpenDocument();
-worker.SaveDocument();
-worker.EditDocument();
+printer.Print("green");
