@@ -1,16 +1,17 @@
 ﻿using Lesson1;
+using System.Xml.Serialization;
 
-Printer printer;
-switch (Console.ReadLine())
+var xmlHandler = new XMLHandler();
+var docHandler = new DOCHandler();
+var txtHandler = new TXTHandler();
+
+AbstractHandler[] array = new AbstractHandler[] {xmlHandler, docHandler, txtHandler};
+for(int i = 0; i < array.Length; i++)
 {
-    case "yellow":
-        printer = new YellowPrinter();
-        break;
-    case "green":
-        printer = new GreenPrinter();
-        break;
-    default:
-        printer = new Printer();
-        break;
+    array[i].Open();
+    array[i].Create();
+    array[i].Change();
+    array[i].Save();
+    Console.WriteLine("----------");
+
 }
-printer.Print("green");
