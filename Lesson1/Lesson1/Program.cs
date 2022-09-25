@@ -1,17 +1,18 @@
 ﻿using Lesson1;
-using System.Xml.Serialization;
 
-var xmlHandler = new XMLHandler();
-var docHandler = new DOCHandler();
-var txtHandler = new TXTHandler();
 
-AbstractHandler[] array = new AbstractHandler[] {xmlHandler, docHandler, txtHandler};
-for(int i = 0; i < array.Length; i++)
-{
-    array[i].Open();
-    array[i].Create();
-    array[i].Change();
-    array[i].Save();
-    Console.WriteLine("----------");
+var player = new Player();
+var player1 = new Player1();
 
-}
+
+player.Pause();
+player.Play();
+player.Record();
+player.Stop();
+Console.WriteLine("---------");
+
+player1.Pause();
+player1.Play();
+player1.Record();
+player1.Stop();
+
