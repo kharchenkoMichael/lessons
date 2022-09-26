@@ -1,18 +1,17 @@
 ﻿using Lesson1;
 
-
-var player = new Player();
-var player1 = new Player1();
-
-
-player.Pause();
-player.Play();
-player.Record();
-player.Stop();
-Console.WriteLine("---------");
-
-player1.Pause();
-player1.Play();
-player1.Record();
-player1.Stop();
-
+var customArray = new CustomArray(new int[] { 1, 5, 23, 7, 5 }, new int[] { 2, 234, 12, -1, 43, 9 });
+for (int i = 0; i < customArray.Lenght; i++)
+{
+    Console.Write($"{customArray[i]}, ");
+    if (i % 2 == 0)
+    {
+        customArray[i] = -customArray[i];
+    }
+}
+Console.WriteLine();
+Console.WriteLine("----------------------");
+for (int i = 0; i < customArray.Lenght; i++)
+{
+    Console.Write($"{customArray[i]}, ");
+}
