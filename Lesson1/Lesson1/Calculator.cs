@@ -4,14 +4,9 @@ namespace Lesson1
 {
     public static class Calculator
     {
-        public static string Reverse(this string str)
+        public static bool And(this bool value, bool value2)
         {
-            var result = "";
-            for(int i = str.Length -1; i >= 0; i--)
-            {
-              result += str[i];
-            }
-          return result;
+          return value && value2;
         }
     }
 }
