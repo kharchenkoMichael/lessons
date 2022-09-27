@@ -1,5 +1,6 @@
 ﻿using Lesson1;
-var wrapperArray = new WrapperArray(new int[] { 1, 34, 55, 12, 15 }, new int[] { 0, 77, 88, 31, 23, 44, 55 }, array3: new int[] { 66, 11, -1, 34, 62, 110 });
-Console.WriteLine(wrapperArray.Min());
-Console.WriteLine(wrapperArray.Max());
-Console.WriteLine(wrapperArray.Sum());
+var store = new Store(new Article[] 
+{ new Article("ковбаса", "АТБ", 25.70), 
+    new Article("морозиво", "МакДональдс", 30.50), 
+    new Article("хліб", "МаркетОпт", 14.25) });
+Console.WriteLine(store["шоколад"]);
