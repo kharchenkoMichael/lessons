@@ -1,5 +1,21 @@
 ﻿
 using Lesson1;
-var str = "understand";
-Console.WriteLine(str.SubString(4,4));
+void ClassTaker(MyClass myClass)
+{
+    myClass.change = "изменено";
+}
+void StructTaker(MyStruct myStruct)
+{
+    myStruct.change = "изменено";
+}
 
+var myClass = new MyClass();
+var myStruct = new MyStruct();
+myClass.change = "не изменено";
+myStruct.change = "не изменено";
+Console.WriteLine(myClass.change);
+Console.WriteLine(myStruct.change);
+ClassTaker(myClass);
+StructTaker(myStruct);
+Console.WriteLine(myClass.change);
+Console.WriteLine(myStruct.change);
