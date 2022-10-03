@@ -1,9 +1,17 @@
-﻿
+﻿var method = (Func<int>[] arrayFunc) =>
+{
+    var sum = 0;
+    for (int i = 0; i < arrayFunc.Length; i++)
+    {
+        sum += arrayFunc[i]();
+    }
+    return sum / arrayFunc.Length;
 
 
-var Add = (int x, int y) => x + y;
-var Sub = (int x, int y) => x - y;
-var Mul = (int x, int y) => x * y;
-var Div = (int x, int y) => x / y;
-var Method = (Func<int, int, int> Function, int x, int y) => Function(x, y);
-Console.WriteLine(Method(Div,5,8));
+
+};
+Console.WriteLine(method(new Func<int>[] { () => 5, () => 7, () => { var random = new Random();
+    var n = random.Next(0,100);
+Console.WriteLine(n);
+return n; } }));
+
