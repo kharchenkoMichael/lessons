@@ -1,14 +1,14 @@
 ﻿using Lesson1;
-
-
-MyDictionary <int,string> myDictionary = new MyDictionary<int, string> ();
-myDictionary.Add(15, "hello");
-myDictionary.Add(22, "bye bye");
-myDictionary.Add(66, "qweqwe");
-myDictionary.Add(77, "treuyuiuo");
-myDictionary.Add(53, "kghjkjl");
-myDictionary.Show();
-myDictionary[22] = "hello hello";
-myDictionary.Show();
+MyList<int> myList = new MyList<int>();
+myList.Add(5);
+myList.Add(8);
+myList.Add(11);
+myList.Add(72);
+myList.Add(99);
+var array = myList.GetArray();
+for(int i = 0; i < array.Length; i++)
+{
+    Console.WriteLine(array[i]);
+}
 
 
