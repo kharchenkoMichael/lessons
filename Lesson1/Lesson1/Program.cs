@@ -1,13 +1,17 @@
 ﻿using Lesson1;
-var arrayList = new ArrayList();
-arrayList.Add(5);
-arrayList.Add("hello");
-arrayList.Add('c');
-arrayList.Add(true);
-arrayList.Add(5.67);
-arrayList.Show();
-Console.WriteLine("-----------");
-arrayList[1] = false;
-arrayList.Show();
+var account = new Account();
+var mobilePhone = new MobilePhone();
+var mail = new Mail();
 
+account.SendNotification += mobilePhone.ShowNotification;
+account.SendNotification += mail.SendMessage;
+
+account.Give(100);
+account.Take(50);
+account.Take(70);
+
+account.SendNotification -= mobilePhone.ShowNotification;
+account.Take(30);
+account.Give(40);
+account.Take(80);
 
