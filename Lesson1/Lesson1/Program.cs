@@ -1,17 +1,12 @@
 ﻿using Lesson1;
-var account = new Account();
-var mobilePhone = new MobilePhone();
-var mail = new Mail();
 
-account.SendNotification += mobilePhone.ShowNotification;
-account.SendNotification += mail.SendMessage;
+var user1 = new User();
+var user2 = new User();
+user1.Name = "Misha";
+user2.Name = "Jenya";
 
-account.Give(100);
-account.Take(50);
-account.Take(70);
-
-account.SendNotification -= mobilePhone.ShowNotification;
-account.Take(30);
-account.Give(40);
-account.Take(80);
+user1.SendMessage += user2.TakeMethod;
+user2.SendMessage += user1.TakeMethod;
+user1.SendMethod("привіт Женя");
+user2.SendMethod("Привіт Міша");
 
