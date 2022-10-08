@@ -6,8 +6,8 @@ namespace Lesson1
         public string Name { get; set; }
 
 
-        private event Action<string>? sendMessage = null;
-        public event Action<string> SendMessage
+        private event EventHandler<UserEventArgs>? sendMessage = null;
+        public event EventHandler<UserEventArgs> SendMessage
         {
             add
             {
@@ -18,15 +18,21 @@ namespace Lesson1
                 sendMessage -= value;
             }
         }
-        public void TakeMethod(string text)
+        public void TakeMethod(object? sender, UserEventArgs args)
         {
-            Console.WriteLine($"{Name} : отримав повідомлення - {text}");
+            if(sender == null)
+            {
+                return;
+            }
+            Console.WriteLine($"{Name} : отримав повідомлення - {args.Text} - від {((User)sender).Name}");
         }
         public void SendMethod(string text)
         {
+            var args = new UserEventArgs();
+            args.Text = text;
             if(sendMessage != null)
             {
-                sendMessage(text);
+                sendMessage(this,args);
             }
         }
     }
