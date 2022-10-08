@@ -1,10 +1,15 @@
-﻿using Lesson1;
-
-var store = new Store();
-foreach (Product product in store)
+﻿
+IEnumerable<int> Method(int[] array)
 {
-    Console.Write(product.Name);
-    Console.Write(" ");
-    Console.Write(product.Price);
-    Console.WriteLine();
+    for(int i = 0; i < array.Length; i++)
+    {
+        if (array[i] > 0)
+        {
+            yield return array[i];
+        }
+    }
+}
+foreach (var item in Method(new int[] { -1, -99, 2, 6, 10, -101, 1111, 55, -77 }))
+{
+    Console.WriteLine(item);
 }
