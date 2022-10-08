@@ -1,15 +1,17 @@
 ﻿
-IEnumerable<int> Method(int[] array)
-{
-    for(int i = 0; i < array.Length; i++)
-    {
-        if (array[i] > 0)
-        {
-            yield return array[i];
-        }
-    }
-}
-foreach (var item in Method(new int[] { -1, -99, 2, 6, 10, -101, 1111, 55, -77 }))
+using Lesson1;
+
+var list = new List<int>();
+list.Add(5);
+list.Add(7);
+list.Add(3);
+list.Add(11);
+list.Add(10);
+list.Add(-2);
+list.Add(-11);
+list.Add(-7);
+foreach(var item in list.Filter(x=> x%2==0))
 {
     Console.WriteLine(item);
 }
+
