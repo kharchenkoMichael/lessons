@@ -1,19 +1,25 @@
 ﻿
-using System.ComponentModel;
-
 namespace Lesson1
 {
-    public static class Class
+    public struct Worker
     {
-        public static IEnumerable<int> Filter(this IEnumerable<int> collection, Func<int, bool> filter)
+        private string name;
+        private string nameJob;
+        private int year;
+
+        public int Year { get { return year; } }
+        public string Name { get { return name; } }
+        public Worker(string name,string nameJob,int year)
         {
-            foreach(var item in collection)
+            this.name = name;
+            this.nameJob = nameJob;
+            this.year = year;
+            if(year > DateTime.Now.Year)
             {
-                if(filter(item))
-                {
-                    yield return item;
-                }
+                throw new Exception();
             }
         }
+      
+  
     }
 }
