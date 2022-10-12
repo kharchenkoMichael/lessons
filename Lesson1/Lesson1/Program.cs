@@ -1,31 +1,36 @@
 ﻿
 using Lesson1;
 
-var workers = new Worker[5];
-for (int i = 0; i < workers.Length; i++)
+var prices = new Price[2];
+for (int i = 0; i < prices.Length; i++)
 {
-    var name = Console.ReadLine();
-    var nameJob = Console.ReadLine();
-    var year = int.Parse(Console.ReadLine());
+    var nameItem = Console.ReadLine();
+    var nameMagazine = Console.ReadLine();
+    var price = double.Parse(Console.ReadLine());
     try
     {
-        workers[i] = new Worker(name, nameJob, year);
+        prices[i] = new Price(nameItem, nameMagazine, price);
     }
     catch
     {
-        workers[i] = new Worker(name, nameJob, DateTime.Now.Year);
-        Console.WriteLine("Вы обогнали текущий год");
+        prices[i] = new Price(nameItem, nameMagazine, 1);
+        Console.WriteLine("Цена не может быть меньше 1");
     }
 }
-var value = int.Parse(Console.ReadLine());
-for(int i = 0; i < workers.Length; i++)
+var magazine = Console.ReadLine();
+bool IsMagazine = false;
+for(int i = 0; i < prices.Length; i++)
 {
-    if(DateTime.Now.Year - workers[i].Year >= value)
+    if (prices[i].NameMagazine == magazine)
     {
-        Console.WriteLine(workers[i].Name);
+        prices[i].ShowInfo();
+        IsMagazine = true;
     }
 }
-
+if (!IsMagazine)
+{
+    throw new Exception();
+}
 
 
 
