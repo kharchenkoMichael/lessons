@@ -1,36 +1,22 @@
 ﻿
 using Lesson1;
 
-var prices = new Price[2];
-for (int i = 0; i < prices.Length; i++)
-{
-    var nameItem = Console.ReadLine();
-    var nameMagazine = Console.ReadLine();
-    var price = double.Parse(Console.ReadLine());
-    try
-    {
-        prices[i] = new Price(nameItem, nameMagazine, price);
-    }
-    catch
-    {
-        prices[i] = new Price(nameItem, nameMagazine, 1);
-        Console.WriteLine("Цена не может быть меньше 1");
-    }
-}
-var magazine = Console.ReadLine();
-bool IsMagazine = false;
-for(int i = 0; i < prices.Length; i++)
-{
-    if (prices[i].NameMagazine == magazine)
-    {
-        prices[i].ShowInfo();
-        IsMagazine = true;
-    }
-}
-if (!IsMagazine)
-{
-    throw new Exception();
-}
+var a = new Vektor() { X = 2, Y = 3 };
+var b = new Vektor() { X = 5, Y = 1 };
+var c = a + b;
+a.Show("A");
+b.Show("B");
+c.Show("C");
+var d = c - new Vektor(2, 2);
+d.Show("D");
+
+var e = a * 5;
+e.Show("E");
+var f = new Vektor(2, 3);
+Console.WriteLine(a == f);
+Console.WriteLine(b == f);
+double lenght = a;
+Console.WriteLine(lenght);
 
 
 
