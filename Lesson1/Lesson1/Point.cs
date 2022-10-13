@@ -4,25 +4,39 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Lesson1
 {
-    public struct Point
+    public class Block
     {
-        private int x;
-        private int y;
-        private int z;
-        public Point(int x,int y, int z)
+        private int a;
+        private int b;
+        private int c;
+        private int d;
+
+
+        public Block(int a, int b, int c, int d)
         {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            
+            this.a = a;
+            this.b = b;
+            this.c = c;
+            this.d = d;
         }
-        public static Point operator+(Point a, Point b)
+
+        public override bool Equals(object? obj)
         {
-            return new Point(a.x + b.x, a.y + b.y, a.z + b.z);
+            if (obj == null)
+            {
+                return false;
+            }
+            if (obj is Block)
+            {
+                Block block = (Block)obj;
+                return a == block.a && b == block.b && c == block.c && d == block.d;
+
+            }
+            return false;
         }
-        public void ShowInfo()
+        public override string ToString()
         {
-            Console.WriteLine($"{x}, {y}, {z}");
+            return $"{a} - a, {b} - b, {c} - c, {d} - d";
         }
 
     }
