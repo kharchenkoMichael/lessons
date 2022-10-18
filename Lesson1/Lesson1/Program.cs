@@ -1,46 +1,33 @@
-﻿
-List<User> users = new List<User>
+﻿using Lesson1;
+List<Car> cars = new List<Car>
 {
-    new User() {Name = "Misha", Age = 24, City = "Kremenchuk", IsMaried = true },
-    new User() {Name = "Vasya", Age = 26, City = "Kremenchuk", IsMaried = false },
-    new User() {Name = "Petya", Age = 22, City = "Kharkiv", IsMaried = true },
-    new User() {Name = "Taras", Age = 45, City = "Kremenchuk", IsMaried = true },
-    new User() {Name = "Egor", Age = 15, City = "Kyiv", IsMaried = false },
-    new User() {Name = "Mykola", Age = 5, City = "Lviv", IsMaried = false },
-    new User() {Name = "Styopa", Age = 21, City = "Kyiv", IsMaried = true },
-    new User() {Name = "Vlad", Age = 19, City = "Kharkiv", IsMaried = false },
-    new User() {Name = "Viktor", Age = 20, City = "Kharkiv", IsMaried = false },
-    new User() {Name = "Valera", Age = 30, City = "Kyiv", IsMaried = true },
-    new User() {Name = "Max", Age = 35, City = "Lviv", IsMaried = true },
-    new User() {Name = "Olga", Age = 25, City = "Kyiv", IsMaried = true },
-    new User() {Name = "Maria", Age = 28, City = "Kremenchuk", IsMaried = true },
-    new User() {Name = "Oleg", Age = 60, City = "Lviv", IsMaried = true },
+    new Car() {Name = "Toyota Camry", Color = "black", Year = 2010 },
+    new Car() {Name = "Audi A8", Color = "white", Year = 2018 },
+    new Car() {Name = "BMW X7", Color = "black", Year = 2017 },
+    new Car() {Name = "Mercedes E200", Color = "grey", Year = 2013 },
+    new Car() {Name = "Nissan Juke", Color = "yellow", Year = 2011 },
+    new Car() {Name = "Pegeut Taxi", Color = "white", Year = 2007 },
+    new Car() {Name = "Audi A4", Color = "pink", Year = 2014 } 
+
 };
-var u = users.Where(item => item.Age > 18).OrderBy(item => item.Name).Select((item, index) => new { index, item.Name, item.Age, item.City, item.IsMaried });
-foreach (var item in u)
+List<Order> orders = new List<Order>
 {
-    Console.WriteLine($"{item.index}: {item.Name} {item.Age} {item.City} {item.IsMaried}");
-}
-Console.ReadKey();
+    new Order() {Model = "Toyota Camry", UserName = "Misha", Phone = "+380979999999" },
+    new Order() {Model = "Audi A8", UserName = "Petya", Phone = "+380972131937" },
+    new Order() {Model = "BMW X7", UserName = "Jenya", Phone = "+380972135555" },
+    new Order() {Model = "Mercedes E200", UserName = "Katya", Phone = "+380972131231" },
+    new Order() {Model = "Nissan Juke", UserName = "Igor", Phone = "+380973334444" },
+    new Order() {Model = "Pegeut Taxi", UserName = "Misha", Phone = "+380972941111" },
+    new Order() {Model = "Audi A4", UserName = "Stanislav", Phone = "+380972037777" }
+};
 
-public class User
+
+var name = Console.ReadLine();
+var result = orders
+    .Where(item => item.UserName == name)
+    .Join(cars,order => order.Model,car => car.Name,
+    (order,car) => new {order.Model,order.UserName,order.Phone,car.Color,car.Year});
+foreach (var item in result)
 {
-    public string Name { get; set; }
-    public int Age { get; set; }
-    public string City { get; set; }
-    public bool IsMaried { get; set; }
-
-    public User()
-    {
-
-    }
-
-    public User(string name, int age, string city, bool isMaried)
-    {
-        Name = name;
-        Age = age;
-        City = city;
-        IsMaried = isMaried;
-    }
-
+    Console.WriteLine($"{item.Model}, {item.UserName}, {item.Phone}, {item.Color}, {item.Year}");
 }
