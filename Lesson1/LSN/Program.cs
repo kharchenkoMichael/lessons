@@ -1,0 +1,2 @@
+﻿using MyNamespace;
+MyClass.myMethod();
