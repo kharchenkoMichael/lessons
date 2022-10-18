@@ -1,33 +1,18 @@
 ﻿using Lesson1;
-List<Car> cars = new List<Car>
+
+
+List<Client> clients = new List<Client>
 {
-    new Car() {Name = "Toyota Camry", Color = "black", Year = 2010 },
-    new Car() {Name = "Audi A8", Color = "white", Year = 2018 },
-    new Car() {Name = "BMW X7", Color = "black", Year = 2017 },
-    new Car() {Name = "Mercedes E200", Color = "grey", Year = 2013 },
-    new Car() {Name = "Nissan Juke", Color = "yellow", Year = 2011 },
-    new Car() {Name = "Pegeut Taxi", Color = "white", Year = 2007 },
-    new Car() {Name = "Audi A4", Color = "pink", Year = 2014 } 
-
+    new Client() {Name = "Katya", Phone = "black", Date = new DateTime(2022,7,15,17,0,0), Price = 350},
+    new Client() {Name = "Juli", Phone = "white", Date = new DateTime(2022,5,17,13,0,0), Price = 400},
+    new Client() {Name = "Anna", Phone = "black", Date = new DateTime(2022,11,22,14,0,0), Price = 200},
+    new Client() {Name = "Nastya", Phone = "grey", Date = new DateTime(2022,9,1,11,0,0), Price = 150},
+    new Client() {Name = "Mia", Phone = "yellow", Date = new DateTime(2022,8,2,16,30,0), Price = 800},
+    new Client() {Name = "Marina", Phone = "white", Date = new DateTime(2022,3,29,12,45,0), Price = 900},
+    new Client() {Name = "Ksusha", Phone = "pink", Date = new DateTime(2022,12,16,19,15,0), Price = 500} 
 };
-List<Order> orders = new List<Order>
-{
-    new Order() {Model = "Toyota Camry", UserName = "Misha", Phone = "+380979999999" },
-    new Order() {Model = "Audi A8", UserName = "Petya", Phone = "+380972131937" },
-    new Order() {Model = "BMW X7", UserName = "Jenya", Phone = "+380972135555" },
-    new Order() {Model = "Mercedes E200", UserName = "Katya", Phone = "+380972131231" },
-    new Order() {Model = "Nissan Juke", UserName = "Igor", Phone = "+380973334444" },
-    new Order() {Model = "Pegeut Taxi", UserName = "Misha", Phone = "+380972941111" },
-    new Order() {Model = "Audi A4", UserName = "Stanislav", Phone = "+380972037777" }
-};
-
-
-var name = Console.ReadLine();
-var result = orders
-    .Where(item => item.UserName == name)
-    .Join(cars,order => order.Model,car => car.Name,
-    (order,car) => new {order.Model,order.UserName,order.Phone,car.Color,car.Year});
+var result = clients.OrderBy(x => x.Date);
 foreach (var item in result)
 {
-    Console.WriteLine($"{item.Model}, {item.UserName}, {item.Phone}, {item.Color}, {item.Year}");
+    Console.WriteLine($"{item.Name}, {item.Phone}, {item.Date}, {item.Price}");
 }
