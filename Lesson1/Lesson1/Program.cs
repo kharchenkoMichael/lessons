@@ -3,9 +3,15 @@
 var directory = Directory.GetCurrentDirectory();
 for (int i = 0; i < 10; i++)
 {
-    Directory.CreateDirectory(Path.Combine(directory, $"New_Directory_{i + 1}"));
+    using (var file = File.Create(Path.Combine(directory, $"File_{i + 1}.txt")))
+    {
+        string text = "some text" + i;
+        var buffer = text.ToCharArray().Select(item => (byte)item).ToArray();
+        file.Write(buffer, 0, buffer.Length);
+    }
 }
+
 for (int i = 0; i < 10; i++)
 {
-    Directory.Delete(Path.Combine(directory, $"New_Directory_{i + 1}"));
+    File.Delete(Path.Combine(directory, $"File_{i + 1}.txt"));
 }
