@@ -11,8 +11,5 @@ List<Client> clients = new List<Client>
     new Client() {Name = "Marina", Phone = "white", Date = new DateTime(2022,3,29,12,45,0), Price = 900},
     new Client() {Name = "Ksusha", Phone = "pink", Date = new DateTime(2022,12,16,19,15,0), Price = 500} 
 };
-var result = clients.OrderBy(x => x.Date).Skip(3) ;
-foreach (var item in result)
-{
-    Console.WriteLine($"{item.Name}, {item.Phone}, {item.Date}, {item.Price}");
-}
+var result = clients.Average(x => x.Price);
+Console.WriteLine(result);
