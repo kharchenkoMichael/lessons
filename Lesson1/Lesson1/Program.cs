@@ -1,12 +1,9 @@
-﻿
-using System.IO;
+﻿using System.IO;
 using System.IO.Compression;
+using System.IO.IsolatedStorage;
 
-using var zip = new GZipStream(new FileStream("new-file.gzip", FileMode.Open), CompressionMode.Decompress);
-using var file = new FileStream("new-file-3.txt", FileMode.OpenOrCreate);
-int theByte = zip.ReadByte();
-while (theByte != -1)
-{
-    file.WriteByte((byte)theByte);
-    theByte = zip.ReadByte();
-}
+
+IsolatedStorageFile userStorage = IsolatedStorageFile.GetUserStoreForAssembly();
+using IsolatedStorageFileStream userStream = new IsolatedStorageFileStream("File1.txt", FileMode.Open, userStorage);
+using var userReader = new StreamReader(userStream);
+Console.WriteLine(userReader.ReadToEnd());
