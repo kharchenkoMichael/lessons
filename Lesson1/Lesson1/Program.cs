@@ -1,12 +1,12 @@
-﻿using System.IO;
-
+﻿
 using System.IO;
 using System.IO.Compression;
 
-using (var writer = new StreamWriter(new FileStream("new-file.txt", FileMode.OpenOrCreate)))
-{ writer.Write("Some text"); }
-using var zip = new GZipStream(new FileStream("new-file.zip", FileMode.OpenOrCreate), CompressionLevel.SmallestSize);
-using var reader = (new FileStream("new-file.txt", FileMode.OpenOrCreate));
-var buffer = new byte[reader.Length];
-reader.Read(buffer);
-zip.Write(buffer);
+using var zip = new GZipStream(new FileStream("new-file.gzip", FileMode.Open), CompressionMode.Decompress);
+using var file = new FileStream("new-file-3.txt", FileMode.OpenOrCreate);
+int theByte = zip.ReadByte();
+while (theByte != -1)
+{
+    file.WriteByte((byte)theByte);
+    theByte = zip.ReadByte();
+}
