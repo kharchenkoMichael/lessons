@@ -2,16 +2,13 @@
 
 var directory = Directory.GetCurrentDirectory();
 
-for (int i = 0; i < 100; i++)
+
+using (var file = File.Create(Path.Combine(directory, $"HELLO ITS ME.txt")))
 {
-    Directory.CreateDirectory(Path.Combine(directory, $"New_Directory_{i + 1}"));
+    string text = "Hello its ME";
+    var buffer = text.ToCharArray().Select(item => (byte)item).ToArray();
+    file.Write(buffer, 0, buffer.Length);
+    file.Close();
 }
+File.Delete(Path.Combine(directory, $"HELLO ITS ME.txt"));
 
-
-
-
-
-for (int i = 0; i < 100; i++)
-{
-    Directory.Delete(Path.Combine(directory, $"Folder_{i + 1}"));
-}
