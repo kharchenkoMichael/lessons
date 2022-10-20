@@ -1,9 +1,17 @@
 ﻿using System.IO;
-using System.IO.Compression;
-using System.IO.IsolatedStorage;
+
+var directory = Directory.GetCurrentDirectory();
+
+for (int i = 0; i < 100; i++)
+{
+    Directory.CreateDirectory(Path.Combine(directory, $"New_Directory_{i + 1}"));
+}
 
 
-IsolatedStorageFile userStorage = IsolatedStorageFile.GetUserStoreForAssembly();
-using IsolatedStorageFileStream userStream = new IsolatedStorageFileStream("File1.txt", FileMode.Open, userStorage);
-using var userReader = new StreamReader(userStream);
-Console.WriteLine(userReader.ReadToEnd());
+
+
+
+for (int i = 0; i < 100; i++)
+{
+    Directory.Delete(Path.Combine(directory, $"Folder_{i + 1}"));
+}
