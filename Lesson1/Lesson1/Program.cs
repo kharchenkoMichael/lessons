@@ -1,25 +1,24 @@
 ﻿using System.IO;
 using System.IO.Compression;
 using System.IO.IsolatedStorage;
+
 var folderPath = Console.ReadLine();
 var directory = new DirectoryInfo(folderPath);
 var fileName = Console.ReadLine();
-bool ConteinFileInFolder (DirectoryInfo directory, string fileName)
+IEnumerable<FileInfo> ConteinFileInFolder (DirectoryInfo directory, string fileName)
 {
-    if(directory.GetFiles().Any(file => file.Name == fileName))
+    var result = new List<FileInfo>();
+    result.AddRange(directory.GetFiles().Where(f => f.Name.Contains(fileName)));
+    foreach (var item in directory.GetDirectories())
     {
-        return true;
+        result.AddRange(ConteinFileInFolder(item, fileName));
     }
-    foreach(var item in directory.GetDirectories())
-    {
-        var result = ConteinFileInFolder(item, fileName);
-        if (result)
-        {
-            return true;
-        }
-    }
-    return false;
+    return result;
 }
 var result = ConteinFileInFolder(directory, fileName);
-Console.WriteLine(result);
+foreach(var item in result)
+{
+    Console.WriteLine(item.FullName);
+}
+
 
