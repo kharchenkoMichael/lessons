@@ -1,14 +1,25 @@
 ﻿using System.IO;
-
-var directory = Directory.GetCurrentDirectory();
-
-
-using (var file = File.Create(Path.Combine(directory, $"HELLO ITS ME.txt")))
+using System.IO.Compression;
+using System.IO.IsolatedStorage;
+var folderPath = Console.ReadLine();
+var directory = new DirectoryInfo(folderPath);
+var fileName = Console.ReadLine();
+bool ConteinFileInFolder (DirectoryInfo directory, string fileName)
 {
-    string text = "Hello its ME";
-    var buffer = text.ToCharArray().Select(item => (byte)item).ToArray();
-    file.Write(buffer, 0, buffer.Length);
-    file.Close();
+    if(directory.GetFiles().Any(file => file.Name == fileName))
+    {
+        return true;
+    }
+    foreach(var item in directory.GetDirectories())
+    {
+        var result = ConteinFileInFolder(item, fileName);
+        if (result)
+        {
+            return true;
+        }
+    }
+    return false;
 }
-File.Delete(Path.Combine(directory, $"HELLO ITS ME.txt"));
+var result = ConteinFileInFolder(directory, fileName);
+Console.WriteLine(result);
 
