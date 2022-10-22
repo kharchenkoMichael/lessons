@@ -1,8 +1,8 @@
 ﻿using Lesson1;
 
-var user1 = new User() { FirstName = "Jenya", LastName = "Murashov", Age = 27, City = "Kremenchuk", Mail = "sadas@qwe.com"};
-var user2 = new User() { FirstName = "Misha", LastName = "Kharchenko", Age = 24, City = "Kremenchuk", Mail = "12312@lke.net" };
-Console.WriteLine(user1);
-Console.WriteLine(user2);
 
-
+var class1 = new Class1();
+class1.Name = "Jenya";
+class1.LastName = "Murashov";
+class1.Year = 27;
+Console.WriteLine(class1.MyToString());
